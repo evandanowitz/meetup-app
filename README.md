@@ -87,7 +87,7 @@
 
 ## Access the Hosted Site
 
-Click [here](https://evandanowitz.github.io/meetup/) to visit the application online.
+Click [here](https://evandanowitz.github.io/meetup-app/) to visit the application online.
 
 ## Technologies
 
