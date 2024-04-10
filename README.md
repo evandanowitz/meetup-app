@@ -15,67 +15,75 @@
 
 ## User Stories and Scenarios (Gherkin)
 
-**User Story**: As a user, I want to filter events based on the city I select so that I can easily find local events in my city.
+**User Story**: As a user, I should be able to filter events by city, so that I can see a list of events taking place in that city.
 
-- **Scenario 1**: User filters events by city by choosing/clicking from dropdown
-  - Given the user is on the events app
-  - When the user selects/clicks a city from the dropdown menu or search bar
-  - Then the user should see a list of events happening in that city
-- **Scenario 2**: User filters events by city using search bar filter
-  - Given the user is on the events app
-  - When the user types into the search bar
-  - Then the user should see a list of all cities matching what they’ve typed in the search, and once clicked, should display events happening in that city
+- **Scenario 1**: When user hasn’t searched for a city, show upcoming events from all cities.
+  - _Given_ user hasn’t searched for any city;
+  - _When_ the user opens the app;
+  - _Then_ the user should see a list of upcoming events
+- **Scenario 2**: User should see a list of suggestions when they search for a city.
+  - _Given_ the main page is open;
+  - _When_ user starts typing in the city textbox
+  - _Then_ the user should receive a list of cities (suggestions) that match what they’ve typed
+- **Scenario 3**: User can select a city from the suggested list.
+  - _Given_ user was typing “Fort Lauderdale” in the city textbox AND the list of suggested cities is showing;
+  - _When_ the user selects a city (e.g., “Fort Lauderdale, Florida”) from the list;
+  - _Then_ their city should be changed to that city (i.e., “Fort Lauderdale, Florida”) AND the user should receive a list of upcoming events in that city.
 
-**User Story**: As a user, I want to show/hide additional event details based on a button click so that I can control the amounts of details shown on the screen.
+**User Story**: As a user, I should be able to show/hide event details with the click of a button, so that I can choose how much detail I want to see for each event
 
-- **Scenario 1**: Event details are shown when user clicks the “Show Event Details” button
-  - Given the user is on the events app
-  - When the user clicks the “Show Event Details” button
-  - Then a modal pops up with all details about the event they clicked on
-- **Scenario 2**: Event details are hidden when user clicks the “Hide Event Details” button
-  - Given the user is on the events app
-  - When the user clicks the “Hide Event Details” button
-  - Then the modal displaying event details goes away and reverts to default state, displaying “Show Event Details” button
+- **Scenario 1**: An event element is collapsed by default.
+  - _Given_ user is logged into the meetup app and browsing events,
+  - _When_ user views the event list,
+  - _Then_ user expects the event elements to be collapsed by default, displaying limited information
+- **Scenario 2**: User can expand an event to see details.
+  - _Given_ that user is logged into the meetup app and browsing events,
+  - _When_ user encounters a collapsed event element (default), and clicks the button to expand event details
+  - _Then_ user expects the event element to expand, revealing additional information for that event
+- **Scenario 3**: User can collapse an event to hide details.
+  - _Given_ that user is viewing an expanded event element,
+  - _When_ user clicks on the collapse button
+  - _Then_ user expects the event element to collapse (back to default), showing less information
 
-**User Story**: As a user, I want to see only the amount of events displayed that I specify so that I am not overwhelmed by all events at once.
+**User Story**: As a user, I should be able to specify the number of events displayed at once, so that I’m not overwhelmed by every event in my area displaying at once
 
-- **Scenario 1**: When a user specifies a number, that number of events are shown
-  - Given the user is on the events app
-  - When the user specifies a number of events by choosing a number in the dropdown or typing in the search bar
-  - Then the number of events chosen should be displayed
-- **Scenario 2**: When a user hasn’t specified a number, all events are shown by default
-  - Given the user is on the events app
-  - When the user doesn’t specify a number of events
-  - Then all events should be displayed by default
+- **Scenario 1**: When user hasn’t specified a number, 32 events are shown by default.
+  - _Given_ user is logged into the meetup app
+  - _When_ user views the events without specifying the number of events to display
+  - _Then_ 32 events should be displayed by default
+- **Scenario 2**: User can change the number of events displayed.
+  - _Given_ user is logged into the meetup app
+  - _When_ user chooses a certain number of events to be displayed at once from the dropdown menu
+  - _Then_ the chosen number of events should be displayed on the screen
 
-**User Story**: As a user, I want to be able to use the Meetup app while I am offline so that I can use the app even when I don’t have access to the internet.
+**User Story**: As a user, I should be able to use the app while offline, so that I can access previously saved data and information whether or not I have an internet connection
 
-- **Scenario 1**: User is able to use the Meetup while offline
-  - Given the user has previously used the Meetup app and data has been cached/saved
-  - When the user launches the app while offline/without an internet connection
-  - Then the user should still be able to (only) view previously accessed/saved event details and profiles
-- **Scenario 2**: When user launches the app while offline, a notification should appear notifying the user that they are in offline mode
-  - Given the user is on the app while offline
-  - When the user launches the app while offline/without an internet connection
-  - Then the user should receive a notification stating that they are in offline mode and have view-only access
+- **Scenario 1**: Show saved/cached data when there's no internet connection.
+  - _Given_ the user has previously used the meetup app and is currently logged in
+  - _When_ the user opens the app without an internet connection
+  - _Then_ the app should still display previously saved data, event, and profile information
+- **Scenario 2**: Show error when user changes search settings (city, number of events).
+  - _Given_ the user is using the app without an internet connection
+  - _When_ the user attempts to change their search settings
+  - _Then_ the settings change should fail and the user should receive an error message indicating a failed attempt and that the user is offline
 
-**User Story**: As a user, I should be able to add an app shortcut to the home screen so that I can quickly access the Meetup app without having to navigate through menus.
+**User Story**: As a user, I should be able to add an app shortcut to my home screen, so that I can avoid having to navigate through menus and can access the app more easily
 
-- **Scenario 1**: User adds app shortcut to home screen
-  - Given the user is on the events app
-  - When the user clicks the “Add Shortcut to Home Screen” button
-  - Then the user should be able to access the Meetup app via the shortcut on the home screen
-- **Scenario 2**: User removes app shortcut from home screen
-  - Given the user is on the home screen
-  - When the user long-presses the Meetup app icon on the home screen and clicks “Remove Shortcut from Home Screen” button
-  - Then the shortcut should be removed and the user should no longer see a Meetup app shortcut on the home screen
+- **Scenario 1**: User can install the meetup app as a shortcut on their device's home screen.
+  - _Given_ the meetup app is open
+  - _When_ the user clicks the “Add Shortcut to Home Screen” button in their settings
+  - _Then_ a shortcut to the app should be added to the home screen of the user’s device
+- **Scenario 2**: User can uninstall the meetup app shortcut from their device's home screen
+  - _Given_ the user has the meetup app installed on their device's home screen
+  - _When_ the user long-presses the app icon on the home screen and clicks the “Remove from Home Screen” button
+  - _Then_ the shortcut to the app should be removed from the home screen of the user’s device
 
-**User Story**: As a user, I want to see a chart visualizing event details so that I can efficiently view trends and compare with other events.
+**User Story**: As a user, I should be able to view charts that visualize event details, so that I can visually compare things like price, trends, attendance, etc.
 
-- **Scenario 1**: User views attendance chart for an event
-  - Given the user is viewing the chart details of an event
-  - When the user clicks on the chart icon
-  - Then the user should see a graph/chart that visualizes attendance trends, prices, popularity, etc.
+- **Scenario 1**: Show a chart with the number of upcoming events in each city
+  - _Given_ the user is viewing expanded event details
+  - _When_ the user clicks the “Chart” section in the expanded view
+  - _Then_ the user should see a chart displaying things like price, trends, attendance, etc.
 
 ## Access the Hosted Site
 
@@ -84,6 +92,8 @@ Click [here](https://evandanowitz.github.io/meetup/) to visit the application on
 ## Technologies
 
 - [React](https://react.dev/)
+- Serverless: No backend maintenance, easy to scale, always available, no cost for idle time.
+- PWAs: Instant loading, offline support, push notifications, “add to home screen” prompt, responsive design, and cross-platform compatibility.
 
 ## Dependencies
 
