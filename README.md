@@ -120,3 +120,7 @@ Click [here](https://evandanowitz.github.io/meetup-app/) to visit the applicatio
 ## Developer Dependencies
 
 - gh-pages: ^6.1.1
+
+## Use of Serverless Functions
+
+Serverless functions will be used to authenticate and authorize users via Google’s OAuth2. The user will be able to log in to their Google account (give consent), which in turn, will grant them an access token from the authorization server. Subsequently, this access token will be sent to the API with each user request, putting serverless functions in charge of user requests. The use of serverless functions will allow for safe, secure, and efficient interactions between the app, the user, the authorization server, and the Google Calendar API as well as cost savings, automatic scaling, and less maintenance.
