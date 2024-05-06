@@ -3,17 +3,14 @@ import { getEvents } from "../api";
 import EventList from "../components/EventList";
 import App from "../App";
 
-// unit testing
 describe("<EventList /> component", () => {
   let EventListComponent;
   beforeEach(() => {
     EventListComponent = render(<EventList />);
   });
-
   test("has an element with 'list' role", () => {
     expect(EventListComponent.queryByRole("list")).toBeInTheDocument();
   });
-
   test("renders correct number of events", async () => {
     const allEvents = await getEvents();
     EventListComponent.rerender(<EventList events={allEvents} />);
@@ -21,7 +18,6 @@ describe("<EventList /> component", () => {
   });
 });
 
-// integration testing
 describe("<EventList /> integration", () => {
   test("renders a list of 32 events when the app is mounted and rendered", async () => {
     const AppComponent = render(<App />);
