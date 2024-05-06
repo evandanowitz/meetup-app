@@ -1,11 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
 
-const NumberOfEvents = () => {
-  const [numEvents, setNumEvents] = useState("32");
+const NumberOfEvents = ({ setCurrentNOE }) => {
 
   const handleInputChanged = (event) => {
     const value = event.target.value; // this essentially extracts the value entered by the user into the input field and stores it in the variable "value".
-    setNumEvents(value);
+    setCurrentNOE(value);
   };
 
   return (
@@ -13,7 +12,7 @@ const NumberOfEvents = () => {
       <input 
         type="text" 
         className="number-of-events-input" 
-        value={numEvents} 
+        defaultValue="32"
         onChange={handleInputChanged} 
       />
     </div>
