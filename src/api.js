@@ -80,7 +80,7 @@ export const getEvents = async () => {
       `https://7ektu7hfui.execute-api.us-east-1.amazonaws.com/dev/api/token/${encodeCode}`
     );
     const { access_token } = await response.json();
-    access_token && localStorage.setItem("acess_token", access_token);
+    access_token && localStorage.setItem("access_token", access_token);
 
     return access_token;
   };
