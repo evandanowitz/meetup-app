@@ -3,6 +3,7 @@
   text-align: center;
   padding: 2% 5%;
   background-color: #f9f7e8;
+  min-height: 100vh;
 }
 
 .App * {
