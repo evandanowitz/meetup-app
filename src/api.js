@@ -14,7 +14,6 @@ export const extractLocations = (events) => {
 
 // The following function will fetch the list of all events
 export const getEvents = async () => {
-  // limit the mock data to localhost
   if (window.location.href.startsWith("http://localhost")) {
     return mockData;
   }
