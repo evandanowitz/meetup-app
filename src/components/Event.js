@@ -15,7 +15,7 @@ const Event = ({ event }) => {
       <button className="details-btn" 
         onClick={() => {
           showDetails ? setShowDetails(false) : setShowDetails(true);
-        }}>{showDetails ? "Hide Deatils" : "Show Details"}
+        }}>{showDetails ? "Hide Details" : "Show Details"}
       </button>
     </li>
   );
