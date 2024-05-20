@@ -17,6 +17,11 @@ const App = () => {
   const [errorAlert, setErrorAlert] = useState("");
 
   useEffect(() => {
+    if (navigator.onLine) {
+      setWarningAlert(warningAlert);
+    } else {
+      setWarningAlert("Meetup is currently offline. The list of events being displayed may not be up-to-date.")
+    }
     fetchData();
   }, [currentCity, currentNOE]);
 
