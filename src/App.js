@@ -13,6 +13,7 @@ const App = () => {
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
 
   useEffect(() => {
