@@ -1,4 +1,4 @@
-# EventHive (meetup-app)
+# Meetup (meetup-app)
 
 ## Description
 
